@@ -45,7 +45,7 @@ where
                 buf.push(src.read_u16_le().await?);
             }
 
-            String::from_utf16(&buf[..])?
+            String::from_utf16_lossy(&buf[..])
         }
     };
 
