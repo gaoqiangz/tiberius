@@ -166,6 +166,12 @@ impl<'a> IntoSql<'a> for Option<&'a Uuid> {
     }
 }
 
+impl<'a> IntoSql<'a> for ColumnData<'a> {
+    fn into_sql(self) -> ColumnData<'a> {
+        self
+    }
+}
+
 into_sql!(self_,
           String: (ColumnData::String, Cow::from(self_));
           Vec<u8>: (ColumnData::Binary, Cow::from(self_));
