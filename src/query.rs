@@ -28,7 +28,7 @@ impl<'a> Query<'a> {
         }
     }
 
-    pub fn sql(&self) -> &'a str {
+    pub fn sql(&self) -> &str {
         &self.sql
     }
 
