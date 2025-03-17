@@ -28,6 +28,14 @@ impl<'a> Query<'a> {
         }
     }
 
+    pub fn sql(&self) -> &'a str {
+        &self.sql
+    }
+
+    pub fn set_sql(&mut self,sql:impl Into<Cow<'a, str>>) {
+        self.sql = sql.into();
+    }
+
     /// Bind a new parameter to the query. Must be called exactly as many times
     /// as there are parameters in the given SQL. Otherwise the query will fail
     /// on execution.
