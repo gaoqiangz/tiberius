@@ -36,6 +36,10 @@ impl<'a> Query<'a> {
         self.sql = sql.into();
     }
 
+    pub fn params(&self) -> &[ColumnData] {
+        &self.params
+    }
+
     /// Bind a new parameter to the query. Must be called exactly as many times
     /// as there are parameters in the given SQL. Otherwise the query will fail
     /// on execution.
