@@ -13,7 +13,7 @@ license = "MIT/Apache-2.0"
 name = "tiberius"
 readme = "README.md"
 repository = "https://github.com/gaoqiangz/tiberius"
-version = "0.12.2-rc.6"
+version = "0.12.2-rc.7"
 
 [workspace]
 members = ["runtimes-macro"]
