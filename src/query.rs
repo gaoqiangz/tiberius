@@ -8,7 +8,7 @@ use crate::{
 };
 
 /// A query object with bind parameters.
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct Query<'a> {
     sql: Cow<'a, str>,
     params: Vec<ColumnData<'a>>,
@@ -32,7 +32,7 @@ impl<'a> Query<'a> {
         &self.sql
     }
 
-    pub fn set_sql(&mut self,sql:impl Into<Cow<'a, str>>) {
+    pub fn set_sql(&mut self, sql: impl Into<Cow<'a, str>>) {
         self.sql = sql.into();
     }
 
