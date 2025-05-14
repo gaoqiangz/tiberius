@@ -43,7 +43,7 @@ pub(crate) async fn create_tls_stream<S: AsyncRead + AsyncWrite + Unpin + Send>(
         }
         TrustConfig::TrustAll => {
             event!(
-                Level::WARN,
+                Level::TRACE,
                 "Trusting the server certificate without validation."
             );
 

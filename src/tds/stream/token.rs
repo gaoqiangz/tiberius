@@ -137,7 +137,7 @@ where
             self.last_error = Some(Error::Server(err.clone()));
         }
 
-        event!(Level::ERROR, message = %err.message, code = err.code);
+        event!(Level::TRACE, message = %err.message, code = err.code);
         Ok(ReceivedToken::Error(err))
     }
 

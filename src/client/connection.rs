@@ -134,7 +134,7 @@ impl<S: AsyncRead + AsyncWrite + Unpin + Send> Connection<S> {
     fn post_login_encryption(mut self, encryption: EncryptionLevel) -> Self {
         if let EncryptionLevel::Off = encryption {
             event!(
-                Level::WARN,
+                Level::TRACE,
                 "Turning TLS off after a login. All traffic from here on is not encrypted.",
             );
 
@@ -469,7 +469,7 @@ impl<S: AsyncRead + AsyncWrite + Unpin + Send> Connection<S> {
             })
         } else {
             event!(
-                Level::WARN,
+                Level::TRACE,
                 "TLS encryption is not enabled. All traffic including the login credentials are not encrypted."
             );
 
@@ -485,7 +485,7 @@ impl<S: AsyncRead + AsyncWrite + Unpin + Send> Connection<S> {
     )))]
     async fn tls_handshake(self, _: &Config, _: EncryptionLevel) -> crate::Result<Self> {
         event!(
-            Level::WARN,
+            Level::TRACE,
             "TLS encryption is not enabled. All traffic including the login credentials are not encrypted."
         );
 

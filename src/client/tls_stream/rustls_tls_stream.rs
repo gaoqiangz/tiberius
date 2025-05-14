@@ -117,7 +117,7 @@ impl<S: AsyncRead + AsyncWrite + Unpin + Send> TlsStream<S> {
             }
             TrustConfig::TrustAll => {
                 event!(
-                    Level::WARN,
+                    Level::TRACE,
                     "Trusting the server certificate without validation."
                 );
                 let mut config = builder
